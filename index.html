@@ -5,9 +5,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Outil de notation des pays pour suivi hebdomadaire: classement Notation">
+    <meta name="description" content="Outil de notation des pays pour suivi hebdomadaire">
     <meta name="author" content="GKPK">
-    <meta name="keywords" content="notation, pays, classement, score, CSV, SBG">
+    <meta name="keywords" content="notation, pays, classement, score, CSV">
     <meta name="application-name" content="Outil de Notation - Pays">
     <meta name="generator" content="HTML/CSS/JavaScript">
     <title>Outil de Notation - Pays</title>
@@ -393,17 +393,12 @@
         .badge-petit { background: var(--petit); color: white; }
         .badge-moyen { background: var(--moyen); color: white; }
 
-        .grade-oui { color: #2ecc71; font-weight: 700; }
-        .grade-non { color: #e74c3c; font-weight: 700; }
-
         .val-positive { color: #2ecc71; }
         .val-negative { color: #e74c3c; }
         .val-zero { color: var(--text-muted); }
         .val-bonus { color: #f39c12; font-weight: 700; }
 
         .val-money { color: #2ecc71; font-weight: 700; font-size: 0.93rem; white-space: nowrap; }
-        .grade-bonus { font-size: 0.72rem; color: #f39c12; display: block; }
-
         .total-cell {
             font-weight: 800;
             font-size: 1rem;
@@ -672,7 +667,6 @@
         <div class="tabs">
             <div class="tab active" onclick="switchTab('form')">&#x1F4DD; Questionnaire</div>
             <div class="tab" onclick="switchTab('results')">&#x1F4CA; Tableau des résultats</div>
-            <div class="tab" onclick="switchTab('admin')">&#x1F510; Administration</div>
         </div>
 
         <!-- QUESTIONNAIRE TAB -->
@@ -686,13 +680,6 @@
                         <div class="form-group">
                             <label>Nom du Pays</label>
                             <input type="text" id="inp-pays" placeholder="Ex: Japon, France..." maxlength="30">
-                        </div>
-                        <div class="form-group">
-                            <label>Grade (Actif)</label>
-                            <div class="toggle-group">
-                                <div class="toggle-btn" data-field="grade" data-value="oui" onclick="toggleSelect(this)">&#x2705; Oui</div>
-                                <div class="toggle-btn" data-field="grade" data-value="non" onclick="toggleSelect(this)">&#x274C; Non</div>
-                            </div>
                         </div>
                         <div class="form-group">
                             <label>Type de Pays</label>
@@ -720,30 +707,12 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label>PIB (0-10) (Tout les 100k $)</label>
-                            <div class="slider-container" data-field="bank" data-max="10">
+                            <label>Taille Pays (0-3)</label>
+                            <div class="slider-container" data-field="taille" data-max="3">
                                 <div class="slider-option" data-value="0" onclick="sliderSelect(this)">0</div>
                                 <div class="slider-option" data-value="1" onclick="sliderSelect(this)">1</div>
                                 <div class="slider-option" data-value="2" onclick="sliderSelect(this)">2</div>
                                 <div class="slider-option" data-value="3" onclick="sliderSelect(this)">3</div>
-                                <div class="slider-option" data-value="4" onclick="sliderSelect(this)">4</div>
-                                <div class="slider-option" data-value="5" onclick="sliderSelect(this)">5</div>
-                                <div class="slider-option" data-value="6" onclick="sliderSelect(this)">6</div>
-                                <div class="slider-option" data-value="7" onclick="sliderSelect(this)">7</div>
-                                <div class="slider-option" data-value="8" onclick="sliderSelect(this)">8</div>
-                                <div class="slider-option" data-value="9" onclick="sliderSelect(this)">9</div>
-                                <div class="slider-option" data-value="10" onclick="sliderSelect(this)">10</div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label>Taille Pays (0-5) (tout les 10 claims)</label>
-                            <div class="slider-container" data-field="taille" data-max="5">
-                                <div class="slider-option" data-value="0" onclick="sliderSelect(this)">0</div>
-                                <div class="slider-option" data-value="1" onclick="sliderSelect(this)">1</div>
-                                <div class="slider-option" data-value="2" onclick="sliderSelect(this)">2</div>
-                                <div class="slider-option" data-value="3" onclick="sliderSelect(this)">3</div>
-                                <div class="slider-option" data-value="4" onclick="sliderSelect(this)">4</div>
-                                <div class="slider-option" data-value="5" onclick="sliderSelect(this)">5</div>
                             </div>
                         </div>
                         <div class="form-group">
@@ -801,15 +770,15 @@
                     <h3><span class="icon">&#x2694;&#xFE0F;</span> Militaire</h3>
                     <div class="form-grid">
                         <div class="form-group">
-                            <label>Points de Guerre (0-5)</label>
-                            <div class="slider-container" data-field="guerre" data-max="5">
+                            <label>Points de Guerre (0-4)</label>
+                            <div class="slider-container" data-field="guerre" data-max="4">
                                 <div class="slider-option" data-value="0" onclick="sliderSelect(this)">0</div>
                                 <div class="slider-option" data-value="1" onclick="sliderSelect(this)">1</div>
                                 <div class="slider-option" data-value="2" onclick="sliderSelect(this)">2</div>
                                 <div class="slider-option" data-value="3" onclick="sliderSelect(this)">3</div>
                                 <div class="slider-option" data-value="4" onclick="sliderSelect(this)">4</div>
-                                <div class="slider-option" data-value="5" onclick="sliderSelect(this)">5</div>
                             </div>
+                            <small style="color:var(--text-muted); margin-top:4px;">Légende : 25 points de guerre = 1 pt</small>
                         </div>
                         <div class="form-group">
                             <label>Trous Missile (0 à -5)</label>
@@ -836,24 +805,10 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label>Fusée (+5)</label>
-                            <div class="toggle-group">
-                                <div class="toggle-btn" data-field="fusee" data-value="oui" onclick="toggleSelect(this)">&#x2705; Oui (+5)</div>
-                                <div class="toggle-btn" data-field="fusee" data-value="non" onclick="toggleSelect(this)">&#x274C; Non (0)</div>
-                            </div>
-                        </div>
-                        <div class="form-group">
                             <label>Antimater (+5)</label>
                             <div class="toggle-group">
                                 <div class="toggle-btn" data-field="antimater" data-value="oui" onclick="toggleSelect(this)">&#x2705; Oui (+5)</div>
                                 <div class="toggle-btn" data-field="antimater" data-value="non" onclick="toggleSelect(this)">&#x274C; Non (0)</div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label>UNESCO (+5)</label>
-                            <div class="toggle-group">
-                                <div class="toggle-btn" data-field="unesco" data-value="oui" onclick="toggleSelect(this)">&#x2705; Oui (+5)</div>
-                                <div class="toggle-btn" data-field="unesco" data-value="non" onclick="toggleSelect(this)">&#x274C; Non (0)</div>
                             </div>
                         </div>
                     </div>
@@ -887,10 +842,8 @@
                         <thead>
                             <tr>
                                 <th>Pays</th>
-                                <th>Grade</th>
                                 <th>Type</th>
                                 <th>Activité</th>
-                                <th>PIB</th>
                                 <th>Taille</th>
                                 <th>Beauté</th>
                                 <th>Mobilier</th>
@@ -899,9 +852,7 @@
                                 <th>Pt Guerre</th>
                                 <th>Trous Missile</th>
                                 <th>Full Build</th>
-                                <th>Fusée</th>
                                 <th>Antimater</th>
-                                <th>UNESCO</th>
                                 <th>TOTAL</th>
                                 <th>Total $</th>
                                 <th>Actions</th>
@@ -925,34 +876,6 @@
             </div>
         </div>
 
-        <!-- ADMIN TAB -->
-        <div class="tab-content" id="tab-admin">
-            <div class="fade-in">
-                <div class="export-bar">
-                    <button class="btn btn-primary" onclick="exportAdminCSV()">&#x1F4E5; Exporter CSV Admin</button>
-                    <span class="count" id="countInfoAdmin"></span>
-                </div>
-
-                <div class="table-wrapper">
-                    <table id="adminTable">
-                        <thead>
-                            <tr>
-                                <th>Pays</th>
-                                <th>Total $</th>
-                                <th>Commandes</th>
-                            </tr>
-                        </thead>
-                        <tbody id="adminTableBody">
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="empty-state" id="emptyStateAdmin">
-                    <div class="icon">&#x1F4CB;</div>
-                    <p>Aucun pays noté pour le moment.<br>Utilisez le questionnaire pour ajouter des pays.</p>
-                </div>
-            </div>
-        </div>
     </div>
 
     <div class="signature">
@@ -962,31 +885,39 @@
     <div class="notification" id="notification"></div>
 
     <script>
-        // Correspondance pays - pseudo
-        const paysToUsername = {
-            'France': 'Kigeekg',
-            'Japon': 'Foxitrap',
-            'Chine': 'Staneleyh',
-            'Grece': 'Chouxxxxx10',
-            'Luxembourg': 'Limonanao14',
-            'Israel':'Titandu19',
-            'france': 'Kigeekg',
-            'japon': 'Foxitrap',
-            'chine': 'Staneleyh',
-            'grece': 'Chouxxxxx10',
-            'luxembourg': 'Limonanao14',
-            'israel':'Titandu19'
-        };
 
         // State
         let pays = JSON.parse(localStorage.getItem('notation_pays') || '[]');
         let editIndex = -1;
 
+        // Migration des anciennes données vers le nouveau barème
+        pays = pays.map(p => {
+            const taille = Math.max(0, Math.min(3, Number(p.taille) || 0));
+            const guerre = Math.max(0, Math.min(4, Number(p.guerre) || 0));
+            const entry = {
+                pays: p.pays,
+                type: p.type,
+                activite: Number(p.activite) || 0,
+                taille,
+                beaute: Number(p.beaute) || 0,
+                mobilier: Number(p.mobilier) || 0,
+                terraforming: Number(p.terraforming) || 0,
+                coherence: Number(p.coherence) || 0,
+                guerre,
+                trous: Number(p.trous) || 0,
+                fullbuild: Number(p.fullbuild) > 0 ? 3 : 0,
+                antimater: Number(p.antimater) > 0 ? 5 : 0
+            };
+            entry.total = entry.activite + entry.taille + entry.beaute +
+                entry.mobilier + entry.terraforming + entry.coherence +
+                entry.guerre + entry.trous + entry.fullbuild + entry.antimater;
+            return entry;
+        });
+        localStorage.setItem('notation_pays', JSON.stringify(pays));
+
         // Selections state
         let selections = {
-            grade: null,
             activite: null,
-            bank: null,
             taille: null,
             beaute: null,
             mobilier: null,
@@ -995,9 +926,7 @@
             guerre: null,
             trous: null,
             fullbuild: null,
-            fusee: null,
             antimater: null,
-            unesco: null
         };
 
         // Init
@@ -1025,19 +954,19 @@
         function switchTab(tab) {
             document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
             document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-            document.getElementById('tab-' + tab).classList.add('active');
-            
-            // Find and activate the correct tab button
+
+            const content = document.getElementById('tab-' + tab);
+            if (!content) return;
+
+            content.classList.add('active');
+
             const tabButtons = document.querySelectorAll('.tab');
-            let tabIndex = 0;
-            if (tab === 'results') tabIndex = 1;
-            else if (tab === 'admin') tabIndex = 2;
-            if (tabIndex < tabButtons.length) {
+            const tabIndex = tab === 'results' ? 1 : 0;
+            if (tabButtons[tabIndex]) {
                 tabButtons[tabIndex].classList.add('active');
             }
-            
+
             if (tab === 'results') renderTable();
-            if (tab === 'admin') renderAdminTable();
         }
 
         // Toggle button (Oui/Non)
@@ -1087,12 +1016,10 @@
 
             if (!nom) return notify('Veuillez entrer un nom de pays', 'error');
             if (!type) return notify('Veuillez choisir un type de pays', 'error');
-            if (selections.grade === null) return notify('Veuillez sélectionner le Grade', 'error');
 
-            // Check all fields filled
-            const requiredFields = ['activite', 'bank', 'taille', 'beaute', 'mobilier',
+            const requiredFields = ['activite', 'taille', 'beaute', 'mobilier',
                 'terraforming', 'coherence', 'guerre', 'trous',
-                'fullbuild', 'fusee', 'antimater', 'unesco'];
+                'fullbuild', 'antimater'];
 
             for (const f of requiredFields) {
                 if (selections[f] === null || selections[f] === undefined) {
@@ -1102,28 +1029,22 @@
 
             const entry = {
                 pays: nom,
-                grade: selections.grade,
                 type: type,
                 activite: selections.activite,
-                bank: selections.bank,
-                taille: selections.taille,
+                taille: Math.max(0, Math.min(3, selections.taille)),
                 beaute: selections.beaute,
                 mobilier: selections.mobilier,
                 terraforming: selections.terraforming,
                 coherence: selections.coherence,
-                guerre: selections.guerre,
+                guerre: Math.max(0, Math.min(4, selections.guerre)),
                 trous: selections.trous,
                 fullbuild: selections.fullbuild === 'oui' ? 3 : 0,
-                fusee: selections.fusee === 'oui' ? 5 : 0,
-                antimater: selections.antimater === 'oui' ? 5 : 0,
-                unesco: selections.unesco === 'oui' ? 5 : 0
+                antimater: selections.antimater === 'oui' ? 5 : 0
             };
 
-            // Calculate total
-            entry.total = entry.activite + entry.bank + entry.taille + entry.beaute +
+            entry.total = entry.activite + entry.taille + entry.beaute +
                 entry.mobilier + entry.terraforming + entry.coherence +
-                entry.guerre + entry.trous + entry.fullbuild + entry.fusee +
-                entry.antimater + entry.unesco;
+                entry.guerre + entry.trous + entry.fullbuild + entry.antimater;
 
             if (editIndex >= 0) {
                 pays[editIndex] = entry;
@@ -1134,7 +1055,6 @@
                 notify('Pays ajouté avec succès !', 'success');
             }
 
-            // Sort by money descending (richest first)
             pays.sort((a, b) => calcMoney(b) - calcMoney(a));
 
             localStorage.setItem('notation_pays', JSON.stringify(pays));
@@ -1181,7 +1101,7 @@
             empty.style.display = 'none';
             bars.style.display = 'block';
 
-            const maxTotal = 51; // Max possible score
+            const maxTotal = 33;
 
             tbody.innerHTML = pays.map((p, i) => {
                 const typeClass = `type-${p.type.toLowerCase()}`;
@@ -1189,10 +1109,8 @@
 
                 return `<tr class="${typeClass}">
                     <td style="font-weight:700; text-align:left; padding-left:10px; min-width:100px; max-width:120px; overflow:hidden; text-overflow:ellipsis;">${escapeHtml(p.pays)}</td>
-                    <td><span class="${p.grade === 'oui' ? 'grade-oui' : 'grade-non'}">${p.grade === 'oui' ? 'Oui' : 'Non'}</span></td>
                     <td><span class="type-badge ${badgeClass}">${getDisplayType(p.type)}</span></td>
                     <td class="${valClass(p.activite)}">${p.activite}</td>
-                    <td class="${valClass(p.bank)}">${p.bank}</td>
                     <td class="${valClass(p.taille)}">${p.taille}</td>
                     <td class="${valClass(p.beaute)}">${p.beaute}</td>
                     <td class="${valClass(p.mobilier)}">${p.mobilier}</td>
@@ -1201,11 +1119,9 @@
                     <td class="${valClass(p.guerre)}">${p.guerre}</td>
                     <td class="${p.trous < 0 ? 'val-negative' : 'val-zero'}">${p.trous}</td>
                     <td class="${p.fullbuild > 0 ? 'val-bonus' : 'val-zero'}">${p.fullbuild > 0 ? '+' + p.fullbuild : '0'}</td>
-                    <td class="${p.fusee > 0 ? 'val-bonus' : 'val-zero'}">${p.fusee > 0 ? '+' + p.fusee : '0'}</td>
                     <td class="${p.antimater > 0 ? 'val-bonus' : 'val-zero'}">${p.antimater > 0 ? '+' + p.antimater : '0'}</td>
-                    <td class="${p.unesco > 0 ? 'val-bonus' : 'val-zero'}">${p.unesco > 0 ? '+' + p.unesco : '0'}</td>
                     <td class="total-cell" style="color:${getTotalColor(p.total, maxTotal)}">${p.total}</td>
-                    <td class="val-money">${formatMoney(calcMoney(p))}$${p.grade === 'oui' ? '<span class="grade-bonus">(dont +' + formatMoney(calcGradeBonus(p)) + '$ grade)</span>' : ''}</td>
+                    <td class="val-money">${formatMoney(calcMoney(p))}$</td>
                     <td>
                         <div class="actions-cell">
                             <button class="btn-icon btn-edit" title="Modifier" onclick="editPays(${i})">&#x270F;&#xFE0F;</button>
@@ -1215,10 +1131,9 @@
                 </tr>`;
             }).join('');
 
-            // Score bars
             const barsContent = document.getElementById('scoreBarsContent');
             barsContent.innerHTML = pays.map(p => {
-                const pct = Math.max(0, (p.total / maxTotal) * 100);
+                const pct = Math.max(0, Math.min(100, (p.total / maxTotal) * 100));
                 const color = getTypeColor(p.type);
                 return `<div class="score-bar-row">
                     <div class="score-bar-label">${escapeHtml(p.pays)}</div>
@@ -1255,19 +1170,12 @@
         }
 
         function getPointRate(type) {
-            const rates = { 'Petit': 500, 'Moyen': 750, 'Grand': 1250, 'Empire': 2000 };
+            const rates = { 'Petit': 1, 'Moyen': 3, 'Grand': 6, 'Empire': 12 };
             return rates[type] || 0;
         }
 
         function calcMoney(p) {
-            let money = p.total * getPointRate(p.type);
-            if (p.grade === 'oui') money = Math.round(money * 1.15);
-            return money;
-        }
-
-        function calcGradeBonus(p) {
-            let base = p.total * getPointRate(p.type);
-            return Math.round(base * 0.15);
+            return p.total * getPointRate(p.type);
         }
 
         function formatMoney(amount) {
@@ -1288,27 +1196,18 @@
             document.getElementById('inp-pays').value = p.pays;
             document.getElementById('inp-type').value = p.type;
 
-            // Toggle grade
-            setToggle('grade', p.grade);
-
-            // Sliders
             setSlider('activite', p.activite);
-            setSlider('bank', p.bank);
-            setSlider('taille', p.taille);
+            setSlider('taille', Math.max(0, Math.min(3, p.taille)));
             setSlider('beaute', p.beaute);
             setSlider('mobilier', p.mobilier);
             setSlider('terraforming', p.terraforming);
             setSlider('coherence', p.coherence);
-            setSlider('guerre', p.guerre);
+            setSlider('guerre', Math.max(0, Math.min(4, p.guerre)));
             setSlider('trous', p.trous);
 
-            // Toggles bonus
             setToggle('fullbuild', p.fullbuild > 0 ? 'oui' : 'non');
-            setToggle('fusee', p.fusee > 0 ? 'oui' : 'non');
             setToggle('antimater', p.antimater > 0 ? 'oui' : 'non');
-            setToggle('unesco', p.unesco > 0 ? 'oui' : 'non');
 
-            // Update button
             document.querySelector('.form-actions .btn-primary').innerHTML = '&#x1F4BE; Modifier le Pays';
 
             switchTab('form');
@@ -1360,14 +1259,14 @@
         function exportCSV() {
             if (pays.length === 0) return notify('Aucune donnée à exporter', 'error');
 
-            const headers = ['Pays', 'Grade', 'Type', 'Activité', 'PIB', 'Taille', 'Beauté',
+            const headers = ['Pays', 'Type', 'Activité', 'Taille', 'Beauté',
                 'Mobilier', 'Terraforming', 'Cohérence', 'Pt Guerre', 'Trous Missile',
-                'Full Build', 'Fusée', 'Antimater', 'UNESCO', 'TOTAL', 'Total $'];
+                'Full Build', 'Antimater', 'TOTAL', 'Total $'];
 
             const rows = pays.map(p => [
-                p.pays, p.grade + (p.grade === 'oui' ? ' (+15%)' : ''), getDisplayType(p.type), p.activite, p.bank, p.taille, p.beaute,
+                p.pays, getDisplayType(p.type), p.activite, p.taille, p.beaute,
                 p.mobilier, p.terraforming, p.coherence, p.guerre, p.trous,
-                p.fullbuild, p.fusee, p.antimater, p.unesco, p.total, calcMoney(p) + '$'
+                p.fullbuild, p.antimater, p.total, calcMoney(p) + '$'
             ]);
 
             let csv = '\uFEFF' + headers.join(';') + '\n';
@@ -1392,71 +1291,6 @@
             setTimeout(() => el.classList.remove('show'), 3000);
         }
 
-        // Render admin table
-        function renderAdminTable() {
-            const tbody = document.getElementById('adminTableBody');
-            const empty = document.getElementById('emptyStateAdmin');
-            const countInfo = document.getElementById('countInfoAdmin');
-
-            countInfo.textContent = `${pays.length} pays enregistré${pays.length > 1 ? 's' : ''}`;
-
-            if (pays.length === 0) {
-                tbody.innerHTML = '';
-                empty.style.display = 'block';
-                return;
-            }
-
-            empty.style.display = 'none';
-
-            tbody.innerHTML = pays.map((p, i) => {
-                const totalMoney = calcMoney(p);
-                const username = paysToUsername[p.pays] || p.pays;
-                const command = `eco give ${username} ${totalMoney}`;
-                return `<tr class="type-${p.type.toLowerCase()}">
-                    <td style="font-weight:700; text-align:left; padding-left:10px; min-width:100px; max-width:120px; overflow:hidden; text-overflow:ellipsis;">${escapeHtml(p.pays)}</td>
-                    <td class="val-money">${formatMoney(totalMoney)}$</td>
-                    <td>
-                        <div class="command-cell">
-                            <span class="command-text" title="${command}">${escapeHtml(command)}</span>
-                            <button class="btn-copy" title="Copier" onclick="copyCommand('${command.replace(/'/g, "\\'")}')">&#x1F4CB;</button>
-                        </div>
-                    </td>
-                </tr>`;
-            }).join('');
-        }
-
-        // Copy command to clipboard
-        function copyCommand(command) {
-            navigator.clipboard.writeText(command).then(() => {
-                notify('Commande copiée !', 'success');
-            }).catch(() => {
-                notify('Erreur lors de la copie', 'error');
-            });
-        }
-
-        // Export Admin CSV
-        function exportAdminCSV() {
-            if (pays.length === 0) return notify('Aucune donnée à exporter', 'error');
-
-            const headers = ['Pays', 'Total $', 'Commande'];
-            const rows = pays.map(p => {
-                const totalMoney = calcMoney(p);
-                const username = paysToUsername[p.pays] || p.pays;
-                return [p.pays, totalMoney + '$', `eco give ${username} ${totalMoney}`];
-            });
-
-            let csv = '\uFEFF' + headers.join(';') + '\n';
-            rows.forEach(r => csv += r.join(';') + '\n');
-
-            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `admin_pays_semaine_${getWeekNumber(new Date())}.csv`;
-            a.click();
-            URL.revokeObjectURL(url);
-            notify('Export CSV Admin téléchargé !', 'success');
-        }
     </script>
 </body>
 </html>
